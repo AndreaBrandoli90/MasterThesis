@@ -1,4 +1,3 @@
-# MasterThesis
 
 ## Faq OpenTimeStamps
 
