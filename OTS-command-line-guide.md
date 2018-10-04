@@ -5,7 +5,7 @@
 - SETUP variables ( for an easy installation )
 
   ```
-  $ export BITCOIN=bitcoin-core-0.16.3
+  $ export BITCOIN=bitcoin-core-0.17.0
   $ export BITCOINPLAIN=`echo $BITCOIN | sed 's/bitcoin-core/bitcoin/'`
   ```
 
