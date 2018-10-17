@@ -5,7 +5,7 @@
 - SETUP variables ( for an easy installation )
 
   ```
-  $ export BITCOIN=bitcoin-core-0.17.0
+  $ export BITCOIN=bitcoin-core-0.16.3
   $ export BITCOINPLAIN=`echo $BITCOIN | sed 's/bitcoin-core/bitcoin/'`
   ```
 
@@ -101,6 +101,50 @@
   ```
 
   You can find a full bitcoin-cli command list here: [Command List](<https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list>)
+
+## HOW TO connect multiple regtest nodes ( under the same network )
+
+If you want to learn Bitcoin core practically from the command line, the best way is to start the Bitcoin core daemon in regtest mode
+
+```
+$ bitcoind -regtest -daemon
+```
+
+Regtest mode is good for developers because you do not depend on other nodes and you can set up your private blockchain ad hoc, mining blocks easily on your own with the command ( in the example below we mine 10 blocks )
+
+```
+& bitcoin-cli -regtest generate 10
+```
+
+In order to get used with all the functionalities of the Bitcoin core, like for example creating, signing and sending transactions, you must manually connect to other nodes running Bitcoin core in regtest mode ( all nodes must be connected on the same network as you are, useful in a class of students )
+
+- First check your ip address
+
+  ```
+  $ ip addr show
+  ```
+
+  or
+
+  ```
+  & ifconfig
+  ```
+
+- Then connect your node to another one
+
+  ```
+  $ bitcoin-cli -regtest addnode "ip address of the node you want to add" "add"
+  ```
+
+- Finally, check if the connection gone successfull
+
+  ```
+  $ bitcoin-cli -regtest -getinfo
+  ```
+
+  In the section "connections" in the output you must see 1
+
+Do the same way if you want to connect other nodes
 
 
 ## HOW TO use OpenTimestamps Client
@@ -231,7 +275,7 @@ You do not need to run a server to use the OpenTimestamps protocol ( there are p
 
 - RUN the server
 
-  Remember that current implementation of the `otsd` server is not properly daemonized yet, so it will run foreground and not background ( you can skip this issue simply opening another terminal and working on it ). OpenTimestamps server do not distinguish mainnet, testnet or regtest, so you have to specify when running ( from now on we’ll work on regtest ). Remember also that your Bitcoin core must be running already in the chosen mode ( regtest ).
+  Remember that current implementation of the `otsd` server is not properly daemonized yet, so it will run foreground and not background ( you can skip this issue simply opening another terminal and working on it ). OpenTimestamps server do not distinguish mainnet, testnet or regtest, so you have to specify when running ( from now on we’ll work on regtest ). Remember also that your Bitcoin core must be running already in the chosen mode ( regtest ) and your `bitcoin.conf` ( in order to run the calendar on regtest ) must have the line `rpcport=18443` that is the standard regtest port
 
   ```
   $ ./otsd --btc-regtest
