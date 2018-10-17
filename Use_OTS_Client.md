@@ -1,4 +1,4 @@
-## HOW TO use OpenTimestamps Client
+## HOW TO timestamp with OpenTimestamps Client
 
 You can CREATE a timestamp without running a Bitcoin node, to VERIFY you must run a Bitcoin node ( a pruned one is fine too )
 
