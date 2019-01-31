@@ -1,8 +1,6 @@
-## Master Thesis
+## Readme
 
-The main theme of this Master Thesis in Mathematical Engineering at Politecnico di Milano is Bitcoin & Blockchain Technologies.
-
-I am currently working on the basic implementative aspects in order to develop my thesis work:
+This repository aims to be a command line guide for bitcoin and OpenTimestamps
 
 - How to run a Bitcoin core node from command line ( Linux based systems ): [Run_Bitcoin_node](https://github.com/AndreaBrandoli90/MasterThesis/blob/master/Run_Bitcoin_node.md)
 - How to connect multiple regtest nodes ( under the same network ): [Multiple_regtest_nodes](https://github.com/AndreaBrandoli90/MasterThesis/blob/master/Multiple_regtest_nodes.md)
